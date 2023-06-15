@@ -248,7 +248,7 @@ function Tabs() {
                   marginTop: 6,
                 }}
               >
-                Quy Nhóm
+                Quỹ Nhóm
               </Text>
             </View>
           ),
