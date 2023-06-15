@@ -9,6 +9,8 @@ import Statistical from "../screen/Statistical";
 import Fund from "../screen/Fund";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
+import Login from "../screen/Login";
+import Resgister from "../screen/Resgister";
 
 const HomeStack = createNativeStackNavigator();
 function HomeStacks() {
@@ -262,6 +264,8 @@ const RootStack = () => {
   return (
     <NavigationContainer>
       <Stacks.Navigator screenOptions={{ headerShown: false }}>
+        <Stacks.Screen name="Login" component={Login} />
+        <Stacks.Screen name="Resgister" component={Resgister} />
         <Stacks.Screen name="Tabs" component={Tabs} />
       </Stacks.Navigator>
     </NavigationContainer>
