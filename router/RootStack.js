@@ -1,0 +1,273 @@
+import { Image, StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Exchange from "../screen/Exchange";
+import Home from "../screen/Home";
+import Add from "../screen/Add";
+import Statistical from "../screen/Statistical";
+import Fund from "../screen/Fund";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+
+const HomeStack = createNativeStackNavigator();
+function HomeStacks() {
+  return (
+    <HomeStack.Navigator screenOptions={{ headerShown: false }}>
+      <HomeStack.Screen name="Home Stack" component={Home} />
+    </HomeStack.Navigator>
+  );
+}
+
+const ExchangeStack = createNativeStackNavigator();
+function ExchangeStacks() {
+  return (
+    <ExchangeStack.Navigator screenOptions={{ headerShown: false }}>
+      <ExchangeStack.Screen name="Exchange Stack" component={Exchange} />
+    </ExchangeStack.Navigator>
+  );
+}
+
+const AddStack = createNativeStackNavigator();
+function AddStacks() {
+  return (
+    <AddStack.Navigator screenOptions={{ headerShown: false }}>
+      <AddStack.Screen name="Add Stack" component={Add} />
+    </AddStack.Navigator>
+  );
+}
+
+const StatisticalStack = createNativeStackNavigator();
+function StatisticalStacks() {
+  return (
+    <StatisticalStack.Navigator screenOptions={{ headerShown: false }}>
+      <StatisticalStack.Screen
+        name="Statistical Stack"
+        component={Statistical}
+      />
+    </StatisticalStack.Navigator>
+  );
+}
+
+const FundStack = createNativeStackNavigator();
+function FundStacks() {
+  return (
+    <FundStack.Navigator screenOptions={{ headerShown: false }}>
+      <FundStack.Screen name="Fund Stack" component={Fund} />
+    </FundStack.Navigator>
+  );
+}
+
+const Tab = createBottomTabNavigator();
+function Tabs() {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          elevation: 0,
+          backgroundColor: "#FFFFFF",
+          width: "100%",
+          height: "9%",
+          shadowColor: "#FFF9EC",
+          shadowOffset: {
+            width: 5,
+            height: 3,
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 3.5,
+          elevation: 5,
+          borderRadius: 15,
+        },
+      }}
+    >
+      <Tab.Screen
+        name="Home"
+        component={HomeStacks}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                source={require("../storages/home.png")}
+                resizeMode="contain"
+                style={{
+                  width: 24,
+                  height: 24,
+                  tintColor: focused ? "#324EE8" : "#C6C6C6",
+                }}
+              ></Image>
+              <Text
+                style={{
+                  fontSize: 12,
+                  color: focused ? "#324EE8" : "#C6C6C6",
+                  marginTop: 6,
+                }}
+              >
+                Trang chủ
+              </Text>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Exchange"
+        component={ExchangeStacks}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                source={require("../storages/exchange.png")}
+                resizeMode="contain"
+                style={{
+                  width: 24,
+                  height: 24,
+                  tintColor: focused ? "#324EE8" : "#C6C6C6",
+                }}
+              ></Image>
+              <Text
+                style={{
+                  fontSize: 12,
+                  color: focused ? "#324EE8" : "#C6C6C6",
+                  marginTop: 6,
+                }}
+              >
+                Giao dịch
+              </Text>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Add"
+        component={AddStacks}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                top: -30,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <View
+                style={{
+                  width: 70,
+                  height: 70,
+                  borderRadius: 35,
+                  backgroundColor: focused ? "#324EE8" : "#324EE8",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Image
+                  source={require("../storages/add.png")}
+                  resizeMode="contain"
+                  style={{
+                    width: 24,
+                    height: 24,
+                    tintColor: focused ? "#FCFCFC" : "#FCFCFC",
+                  }}
+                ></Image>
+              </View>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Statistical"
+        component={StatisticalStacks}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                source={require("../storages/statistical.png")}
+                resizeMode="contain"
+                style={{
+                  width: 24,
+                  height: 24,
+                  tintColor: focused ? "#324EE8" : "#C6C6C6",
+                }}
+              ></Image>
+              <Text
+                style={{
+                  fontSize: 12,
+                  color: focused ? "#324EE8" : "#C6C6C6",
+                  marginTop: 6,
+                }}
+              >
+                Thống kê
+              </Text>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Fund"
+        component={FundStacks}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image
+                source={require("../storages/salary.png")}
+                resizeMode="contain"
+                style={{
+                  width: 24,
+                  height: 24,
+                  tintColor: focused ? "#324EE8" : "#C6C6C6",
+                }}
+              ></Image>
+              <Text
+                style={{
+                  fontSize: 12,
+                  color: focused ? "#324EE8" : "#C6C6C6",
+                  marginTop: 6,
+                }}
+              >
+                Quy Nhóm
+              </Text>
+            </View>
+          ),
+        }}
+      />
+    </Tab.Navigator>
+  );
+}
+const Stacks = createNativeStackNavigator();
+const RootStack = () => {
+  return (
+    <NavigationContainer>
+      <Stacks.Navigator screenOptions={{ headerShown: false }}>
+        <Stacks.Screen name="Tabs" component={Tabs} />
+      </Stacks.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default RootStack;
+
+const styles = StyleSheet.create({});
