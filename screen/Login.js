@@ -36,7 +36,7 @@ const Login = () => {
         setLoading(false);
       }
       if (authUser) {
-        navigation.replace("Tabs");
+        navigation.replace("Verify");
       }
     });
 

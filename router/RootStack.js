@@ -11,6 +11,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import Login from "../screen/Login";
 import Resgister from "../screen/Resgister";
+import Verify from "../screen/Verify";
+import Camera from "../screen/Camerafront";
+import Camerafront from "../screen/Camerafront";
+import Resultfront from "../screen/Resultfront";
+import Cameraback from "../screen/Cameraback";
+import Resultback from "../screen/Resultback";
+import Infor from "../screen/Infor";
 
 const HomeStack = createNativeStackNavigator();
 function HomeStacks() {
@@ -266,6 +273,12 @@ const RootStack = () => {
       <Stacks.Navigator screenOptions={{ headerShown: false }}>
         <Stacks.Screen name="Login" component={Login} />
         <Stacks.Screen name="Resgister" component={Resgister} />
+        <Stacks.Screen name="Verify" component={Verify} />
+        <Stacks.Screen name="Camerafront" component={Camerafront} />
+        <Stacks.Screen name="Resultfront" component={Resultfront} />
+        <Stacks.Screen name="Cameraback" component={Cameraback} />
+        <Stacks.Screen name="Resultback" component={Resultback} />
+        <Stacks.Screen name="Infor" component={Infor} />
         <Stacks.Screen name="Tabs" component={Tabs} />
       </Stacks.Navigator>
     </NavigationContainer>
