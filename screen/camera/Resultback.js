@@ -3,7 +3,7 @@ import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-const Cameraback = () => {
+const Resultback = () => {
   const navigation = useNavigation();
   return (
     <View style={{ backgroundColor: "black", height: "100%" }}>
@@ -56,37 +56,49 @@ const Cameraback = () => {
         }}
       >
         <Image
-          source={require("../storages/cmnd.png")}
+          source={require("../../storages/cmnd.png")}
           style={{ width: 321, height: 206 }}
         />
       </View>
-      <TouchableOpacity
-        onPress={() => navigation.navigate("Resultback")}
-        style={{
-          width: 80,
-          height: 80,
-          backgroundColor: "#D9D9D980",
-          borderRadius: 50,
-          alignItems: "center",
-          justifyContent: "center",
-          alignSelf: "center",
-          marginTop: 250,
-        }}
-      >
-        <View
+      <View style={{ marginTop: 200 }}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
           style={{
+            width: "90%",
+            height: 48,
+            backgroundColor: "black",
+            alignItems: "center",
+            justifyContent: "center",
+            alignSelf: "center",
+            borderRadius: 20,
+            marginTop: 25,
+            borderColor: "#F9DC5C",
             borderWidth: 1,
-            borderColor: "#FFFFFF",
-            width: 62,
-            height: 62,
-            borderRadius: 50,
           }}
-        ></View>
-      </TouchableOpacity>
+        >
+          <Text style={{ fontSize: 16, color: "#F9DC5C" }}>Chụp lại</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Infor")}
+          style={{
+            width: "90%",
+            height: 48,
+            backgroundColor: "#F9DC5C",
+            alignItems: "center",
+            justifyContent: "center",
+            alignSelf: "center",
+            borderRadius: 20,
+            marginTop: 25,
+            borderWidth: 1,
+          }}
+        >
+          <Text style={{ fontSize: 16, color: "black" }}>Dùng ảnh này</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
-export default Cameraback;
+export default Resultback;
 
 const styles = StyleSheet.create({});

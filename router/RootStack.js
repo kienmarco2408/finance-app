@@ -12,12 +12,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import Login from "../screen/Login";
 import Resgister from "../screen/Resgister";
 import Verify from "../screen/Verify";
-import Camera from "../screen/Camerafront";
-import Camerafront from "../screen/Camerafront";
-import Resultfront from "../screen/Resultfront";
-import Cameraback from "../screen/Cameraback";
-import Resultback from "../screen/Resultback";
-import Infor from "../screen/Infor";
+import Camerafront from "../screen/camera/Camerafront";
+import Cameraback from "../screen/camera/Cameraback";
+import Resultback from "../screen/camera/Resultback";
+import Resultfront from "../screen/camera/Resultfront";
+import Infor from "../screen/camera/Infor";
+import AddMoney from "../screen/addinfor/AddMoney";
 
 const HomeStack = createNativeStackNavigator();
 function HomeStacks() {
@@ -279,6 +279,7 @@ const RootStack = () => {
         <Stacks.Screen name="Cameraback" component={Cameraback} />
         <Stacks.Screen name="Resultback" component={Resultback} />
         <Stacks.Screen name="Infor" component={Infor} />
+        <Stacks.Screen name="AddMoney" component={AddMoney} />
         <Stacks.Screen name="Tabs" component={Tabs} />
       </Stacks.Navigator>
     </NavigationContainer>

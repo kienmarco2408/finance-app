@@ -1,7 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const Infor = () => {
+  const navigation = useNavigation();
   return (
     <View style={{ marginTop: 60 }}>
       <View>
@@ -43,6 +45,7 @@ const Infor = () => {
         </Text>
       </TouchableOpacity>
       <TouchableOpacity
+        onPress={() => navigation.navigate("AddMoney")}
         style={{
           width: "90%",
           height: 48,

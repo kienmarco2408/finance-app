@@ -56,7 +56,7 @@ const Resultfront = () => {
         }}
       >
         <Image
-          source={require("../storages/cmnd.png")}
+          source={require("../../storages/cmnd.png")}
           style={{ width: 321, height: 206 }}
         />
       </View>
