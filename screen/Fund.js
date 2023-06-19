@@ -4,7 +4,7 @@ import React from "react";
 const Fund = () => {
   return (
     <View>
-      <Text>Fund</Text>
+      <Text>money</Text>
     </View>
   );
 };
