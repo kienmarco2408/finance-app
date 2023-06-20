@@ -8,8 +8,10 @@ import {
   AntDesign,
 } from "@expo/vector-icons";
 import * as Progress from "react-native-progress";
+import { useNavigation } from "@react-navigation/native";
 
 export default Fund = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
@@ -36,7 +38,7 @@ export default Fund = () => {
               <View style={styles.fundInIcon}>
                 <Image
                   style={styles.imageFundIn}
-                  source={require("../storages/icon/income.png")}
+                  source={require("../../storages/icon/income.png")}
                 />
                 <Text style={styles.fundInIconText}>Tháng 6</Text>
               </View>
@@ -57,27 +59,27 @@ export default Fund = () => {
               <View style={styles.fundInIcon}>
                 <Image
                   style={styles.imageFund}
-                  source={require("../storages/icon/fund.png")}
+                  source={require("../../storages/icon/fund.png")}
                 />
                 <Text style={styles.fundIconText}>Tháng 6</Text>
               </View>
             </View>
           </View>
           <View style={styles.headerIcon}>
-            <View style={styles.icon}>
-              <TouchableOpacity style={styles.bill}>
+            <TouchableOpacity style={styles.icon}>
+              <View style={styles.bill}>
                 <Image
                   style={styles.billIcon}
-                  source={require("../storages/icon/bill.png")}
+                  source={require("../../storages/icon/bill.png")}
                 />
-              </TouchableOpacity>
+              </View>
               <Text style={styles.iconText}>Lập nhóm chia bill</Text>
-            </View>
+            </TouchableOpacity>
             <View style={styles.icon}>
               <TouchableOpacity style={styles.save}>
                 <Image
                   style={styles.billIcon}
-                  source={require("../storages/icon/save.png")}
+                  source={require("../../storages/icon/save.png")}
                 />
               </TouchableOpacity>
               <Text style={styles.iconText}>Mục tiêu tiết kiệm</Text>
@@ -86,7 +88,7 @@ export default Fund = () => {
               <TouchableOpacity style={styles.history}>
                 <Image
                   style={styles.billIcon}
-                  source={require("../storages/icon/history.png")}
+                  source={require("../../storages/icon/history.png")}
                 />
               </TouchableOpacity>
               <Text style={styles.iconText}>Lịch sử giao dịch</Text>
@@ -104,7 +106,12 @@ export default Fund = () => {
           </View>
         </View>
         <View style={styles.saveProgess}>
-          <View style={styles.buy}>
+          <TouchableOpacity
+            style={styles.buy}
+            onPress={() => {
+              navigation.navigate("FundDetail");
+            }}
+          >
             <View style={styles.productInformation}>
               <Text style={styles.productName}>Macbook Pro M1</Text>
               <Text style={styles.productPrice}>12.000.000đ</Text>
@@ -117,8 +124,13 @@ export default Fund = () => {
               />
             </View>
             <SimpleLineIcons name="arrow-right" size={20} color="black" />
-          </View>
-          <View style={styles.buy}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.buy}
+            onPress={() => {
+              navigation.navigate("FundDetail");
+            }}
+          >
             <View style={styles.productInformation}>
               <Text style={styles.productName}>Đi Thái Lan</Text>
               <Text style={styles.productPrice}>4.000.000đ</Text>
@@ -131,19 +143,24 @@ export default Fund = () => {
               />
             </View>
             <SimpleLineIcons name="arrow-right" size={20} color="black" />
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.providentFund}>
-          <Image
-            style={styles.providentFundImage}
-            source={require("../storages/icon/Burger 1.png")}
-          />
+          <View style={styles.providentFundCircle}>
+            <Image
+              style={styles.providentFundImage}
+              source={require("../../storages/icon/burger.png")}
+            />
+          </View>
           <View style={styles.providentFundComponent}>
             <Text style={styles.providentFundText}>Quỹ tiết kiệm</Text>
             <Text style={styles.providentFundAddText}>Thêm quỹ tiết kiệm</Text>
           </View>
           <TouchableOpacity>
             <AntDesign
+              onPress={() => {
+                navigation.navigate("AddFund");
+              }}
               style={styles.providentFundIcon}
               name="plus"
               size={24}
@@ -159,7 +176,6 @@ export default Fund = () => {
 const styles = StyleSheet.create({
   container: {},
   totalIncome: {
-    // flexDirection: "row",
     height: 86,
     gap: 4,
     top: 83,
@@ -424,18 +440,28 @@ const styles = StyleSheet.create({
     marginTop: 200,
     left: 25,
     flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  providentFundCircle: {
+    width: 60,
+    height: 60,
+    borderRadius: 50,
+    backgroundColor: "#212325",
+    marginLeft: 18,
   },
   providentFundImage: {
-    width: 66,
-    height: 66,
-    left: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    bottom: 3,
+    right: 2,
   },
   providentFundComponent: {
     width: 120,
     height: 60,
     justifyContent: "space-between",
     gap: 11,
-    paddingLeft: 50,
+    left: -25,
   },
   providentFundText: {
     fontStyle: "normal",
@@ -445,8 +471,6 @@ const styles = StyleSheet.create({
     color: "#FFF",
     marginBottom: 5,
     width: 100,
-    height: 22,
-    top: 10,
   },
   providentFundAddText: {
     ontStyle: "normal",
@@ -455,11 +479,8 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     color: "#FFF",
     width: 130,
-    height: 22,
-    top: 10,
   },
   providentFundIcon: {
-    paddingLeft: 130,
-    paddingTop: 30,
+    marginRight: 45,
   },
 });

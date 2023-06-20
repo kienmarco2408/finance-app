@@ -6,7 +6,7 @@ import Exchange from "../screen/Exchange";
 import Home from "../screen/Home";
 import Add from "../screen/Add";
 import Statistical from "../screen/Statistical";
-import Fund from "../screen/Fund";
+import Fund from "../screen/fund/Fund";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import Login from "../screen/Login";
@@ -18,6 +18,10 @@ import Resultback from "../screen/camera/Resultback";
 import Resultfront from "../screen/camera/Resultfront";
 import Infor from "../screen/camera/Infor";
 import AddMoney from "../screen/addinfor/AddMoney";
+import AddFund from "../screen/fund/AddFund";
+import AddFundSuccess from "../screen/fund/AddFundSuccess";
+import FundDetail from "../screen/fund/FundDetail";
+import SimpleModal from "../component/SimpleModal";
 
 const HomeStack = createNativeStackNavigator();
 function HomeStacks() {
@@ -281,6 +285,10 @@ const RootStack = () => {
         <Stacks.Screen name="Infor" component={Infor} />
         <Stacks.Screen name="AddMoney" component={AddMoney} />
         <Stacks.Screen name="Tabs" component={Tabs} />
+        <Stacks.Screen name="AddFund" component={AddFund} />
+        <Stacks.Screen name="AddFundSuccess" component={AddFundSuccess} />
+        <Stacks.Screen name="FundDetail" component={FundDetail} />
+        <Stacks.Screen name="SimpleModel" component={SimpleModal} />
       </Stacks.Navigator>
     </NavigationContainer>
   );
