@@ -13,6 +13,7 @@ import {
 import RootStack from "./router/RootStack";
 import { AntDesign } from "@expo/vector-icons";
 import AppIntroSlider from "react-native-app-intro-slider";
+import SimpleModal from "./component/SimpleModal";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
