@@ -12,31 +12,16 @@ import { useNavigation } from "@react-navigation/native";
 import SelectDropdown from "react-native-select-dropdown";
 import ButtonBank from "../../component/ButtonBank";
 
-const AddMoney = () => {
+const AddMonth = () => {
   const navigation = useNavigation();
   const countries = ["Bank", "Tiền mặt"];
   const [money, setMoney] = useState(0);
-  const [total, setTotal] = useState(0);
-
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [showAdditionalButton, setShowAdditionalButton] = useState(false);
 
   const handleMoneyChange = (value) => {
     const newMoney = Number(value);
     setMoney(newMoney);
-    setTotal(newMoney);
   };
 
-  const handleSelectItem = (item, index) => {
-    setSelectedItem(item);
-    setShowAdditionalButton(true);
-    console.log(item, index);
-  };
-
-  const handleAdditionalButtonPress = () => {
-    // Xử lý khi button bổ sung được nhấn
-    console.log("Additional button pressed");
-  };
   return (
     <KeyboardAvoidingView
       style={{
@@ -67,7 +52,7 @@ const AddMoney = () => {
       </View>
       <View
         style={{
-          marginTop: selectedItem ? 60 : 187,
+          marginTop: "100%",
           height: 90,
           borderBottomWidth: 1,
           width: "85%",
@@ -75,7 +60,7 @@ const AddMoney = () => {
           borderColor: "#FCFCFC",
         }}
       >
-        <Text style={{ color: "#FCFCFC", fontSize: 16 }}>Khoản thu 1</Text>
+        <Text style={{ color: "#FCFCFC", fontSize: 16 }}>Tổng</Text>
         <View
           style={{ flexDirection: "row", alignItems: "center", marginTop: 10 }}
         >
@@ -83,7 +68,7 @@ const AddMoney = () => {
             style={{
               width: "92%",
               fontSize: 40,
-              fontWeight: "500",
+              fontWeight: "900",
               color: "#FCFCFC",
             }}
             onChangeText={handleMoneyChange}
@@ -97,41 +82,13 @@ const AddMoney = () => {
           </Text>
         </View>
       </View>
+
       <View
         style={{
-          marginTop: 21,
-          height: 90,
-          borderBottomWidth: 1,
-          width: "85%",
-          alignSelf: "center",
-          borderColor: "#FCFCFC",
-        }}
-      >
-        <Text style={{ color: "#FCFCFC", fontSize: 16 }}>Tổng</Text>
-        <View
-          style={{ flexDirection: "row", alignItems: "center", marginTop: 10 }}
-        >
-          <Text
-            style={{
-              width: "92%",
-              fontSize: 40,
-              fontWeight: "900",
-              color: "#FCFCFC",
-            }}
-          >
-            {total}
-          </Text>
-          <Text style={{ color: "#FCFCFC", fontSize: 20, fontWeight: "500" }}>
-            vnd
-          </Text>
-        </View>
-      </View>
-      <View
-        style={{
-          height: selectedItem ? 469 : 350,
+          height: 350,
           backgroundColor: "white",
           position: "relative",
-          top: 120,
+          top: 50,
           width: "100%",
           borderRadius: 32,
         }}
@@ -143,79 +100,18 @@ const AddMoney = () => {
               width: "90%",
               borderWidth: 1,
               borderRadius: 16,
-              marginTop: 26,
+              marginTop: 50,
               justifyContent: "center",
             }}
           >
             <TextInput
               style={{ paddingLeft: 16, color: "#324EE8" }}
-              placeholder="Tên"
+              placeholder="Ngân sách/tháng"
               placeholderTextColor="#91919F"
             />
           </View>
-
-          <SelectDropdown
-            data={countries}
-            onSelect={handleSelectItem}
-            defaultButtonText={"Nguồn thu"}
-            buttonTextAfterSelection={(selectedItem, index) => selectedItem}
-            rowTextForSelection={(item) => item}
-            buttonStyle={styles.dropdown2BtnStyle}
-            buttonTextStyle={{
-              color: selectedItem ? "#324EE8" : "#91919F",
-              textAlign: "left",
-              fontSize: 16,
-            }}
-            renderDropdownIcon={(isOpened) => {
-              return (
-                <FontAwesome
-                  name={isOpened ? "chevron-up" : "chevron-down"}
-                  color={"black"}
-                  size={18}
-                />
-              );
-            }}
-            dropdownIconPosition={"right"}
-            dropdownStyle={styles.dropdown2DropdownStyle}
-            rowStyle={styles.dropdown2RowStyle}
-            rowTextStyle={styles.dropdown2RowTxtStyle}
-          />
         </View>
 
-        {showAdditionalButton && (
-          <View>
-            <View>
-              <Text
-                style={{
-                  fontSize: 16,
-                  fontWeight: "500",
-                  marginLeft: 16,
-                  marginTop: 16,
-                }}
-              >
-                Bank
-              </Text>
-              <View style={{ marginTop: 10 }}>
-                <ButtonBank />
-              </View>
-            </View>
-            <TouchableOpacity
-              style={{
-                width: "90%",
-                height: 48,
-                backgroundColor: "#FF87AB",
-                alignItems: "center",
-                justifyContent: "center",
-                alignSelf: "center",
-                borderRadius: 20,
-                marginTop: 10,
-              }}
-              onPress={() => navigation.navigate("AddMoney2")}
-            >
-              <Text style={{ fontSize: 16, color: "#313131" }}>Thêm</Text>
-            </TouchableOpacity>
-          </View>
-        )}
         <TouchableOpacity
           style={{
             width: "90%",
@@ -225,9 +121,9 @@ const AddMoney = () => {
             justifyContent: "center",
             alignSelf: "center",
             borderRadius: 20,
-            marginTop: 15,
+            marginTop: 40,
           }}
-          onPress={() => navigation.navigate("AddMonth")}
+          onPress={() => navigation.navigate("MonthlyBudget")}
         >
           <Text style={{ fontSize: 16, color: "#313131" }}>Xác nhận</Text>
         </TouchableOpacity>
@@ -236,7 +132,7 @@ const AddMoney = () => {
   );
 };
 
-export default AddMoney;
+export default AddMonth;
 
 const styles = StyleSheet.create({
   dropdown2BtnStyle: {

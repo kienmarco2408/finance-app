@@ -18,6 +18,10 @@ import Resultback from "../screen/camera/Resultback";
 import Resultfront from "../screen/camera/Resultfront";
 import Infor from "../screen/camera/Infor";
 import AddMoney from "../screen/addinfor/AddMoney";
+import AddMoney2 from "../screen/addinfor/AddMoney2";
+import AddMonth from "../screen/addinfor/AddMonth";
+import MonthlyBudget from "../screen/addinfor/MonthlyBudget";
+import DoneMonth from "../screen/addinfor/DoneMonth";
 import AddFund from "../screen/fund/AddFund";
 import AddFundSuccess from "../screen/fund/AddFundSuccess";
 import FundDetail from "../screen/fund/FundDetail";
@@ -284,6 +288,10 @@ const RootStack = () => {
         <Stacks.Screen name="Resultback" component={Resultback} />
         <Stacks.Screen name="Infor" component={Infor} />
         <Stacks.Screen name="AddMoney" component={AddMoney} />
+        <Stacks.Screen name="AddMoney2" component={AddMoney2} />
+        <Stacks.Screen name="AddMonth" component={AddMonth} />
+        <Stacks.Screen name="MonthlyBudget" component={MonthlyBudget} />
+        <Stacks.Screen name="DoneMonth" component={DoneMonth} />
         <Stacks.Screen name="Tabs" component={Tabs} />
         <Stacks.Screen name="AddFund" component={AddFund} />
         <Stacks.Screen name="AddFundSuccess" component={AddFundSuccess} />

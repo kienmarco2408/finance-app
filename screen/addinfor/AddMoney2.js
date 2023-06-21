@@ -12,7 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 import SelectDropdown from "react-native-select-dropdown";
 import ButtonBank from "../../component/ButtonBank";
 
-const AddMoney = () => {
+const AddMoney2 = () => {
   const navigation = useNavigation();
   const countries = ["Bank", "Tiền mặt"];
   const [money, setMoney] = useState(0);
@@ -67,7 +67,7 @@ const AddMoney = () => {
       </View>
       <View
         style={{
-          marginTop: selectedItem ? 60 : 187,
+          marginTop: 160,
           height: 90,
           borderBottomWidth: 1,
           width: "85%",
@@ -76,6 +76,38 @@ const AddMoney = () => {
         }}
       >
         <Text style={{ color: "#FCFCFC", fontSize: 16 }}>Khoản thu 1</Text>
+        <View
+          style={{ flexDirection: "row", alignItems: "center", marginTop: 10 }}
+        >
+          <TextInput
+            style={{
+              width: "92%",
+              fontSize: 40,
+              fontWeight: "500",
+              color: "#FCFCFC",
+            }}
+            onChangeText={handleMoneyChange}
+            value={money.toString()}
+            placeholder="0"
+            placeholderTextColor="#FCFCFC"
+            keyboardType="numeric"
+          />
+          <Text style={{ color: "#FCFCFC", fontSize: 20, fontWeight: "500" }}>
+            vnd
+          </Text>
+        </View>
+      </View>
+      <View
+        style={{
+          marginTop: 21,
+          height: 90,
+          borderBottomWidth: 1,
+          width: "85%",
+          alignSelf: "center",
+          borderColor: "#FCFCFC",
+        }}
+      >
+        <Text style={{ color: "#FCFCFC", fontSize: 16 }}>Khoản thu 2</Text>
         <View
           style={{ flexDirection: "row", alignItems: "center", marginTop: 10 }}
         >
@@ -128,10 +160,10 @@ const AddMoney = () => {
       </View>
       <View
         style={{
-          height: selectedItem ? 469 : 350,
+          height: 350,
           backgroundColor: "white",
           position: "relative",
-          top: 120,
+          top: 40,
           width: "100%",
           borderRadius: 32,
         }}
@@ -182,40 +214,6 @@ const AddMoney = () => {
           />
         </View>
 
-        {showAdditionalButton && (
-          <View>
-            <View>
-              <Text
-                style={{
-                  fontSize: 16,
-                  fontWeight: "500",
-                  marginLeft: 16,
-                  marginTop: 16,
-                }}
-              >
-                Bank
-              </Text>
-              <View style={{ marginTop: 10 }}>
-                <ButtonBank />
-              </View>
-            </View>
-            <TouchableOpacity
-              style={{
-                width: "90%",
-                height: 48,
-                backgroundColor: "#FF87AB",
-                alignItems: "center",
-                justifyContent: "center",
-                alignSelf: "center",
-                borderRadius: 20,
-                marginTop: 10,
-              }}
-              onPress={() => navigation.navigate("AddMoney2")}
-            >
-              <Text style={{ fontSize: 16, color: "#313131" }}>Thêm</Text>
-            </TouchableOpacity>
-          </View>
-        )}
         <TouchableOpacity
           style={{
             width: "90%",
@@ -227,7 +225,6 @@ const AddMoney = () => {
             borderRadius: 20,
             marginTop: 15,
           }}
-          onPress={() => navigation.navigate("AddMonth")}
         >
           <Text style={{ fontSize: 16, color: "#313131" }}>Xác nhận</Text>
         </TouchableOpacity>
@@ -236,7 +233,7 @@ const AddMoney = () => {
   );
 };
 
-export default AddMoney;
+export default AddMoney2;
 
 const styles = StyleSheet.create({
   dropdown2BtnStyle: {
