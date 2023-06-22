@@ -1,8 +1,7 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { Feather } from "@expo/vector-icons";
 
-const Home = () => {
+const demo = () => {
   return (
     <View>
       <View
@@ -195,6 +194,6 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default demo;
 
 const styles = StyleSheet.create({});
