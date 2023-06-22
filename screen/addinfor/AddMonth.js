@@ -9,8 +9,6 @@ import {
 import React, { useState } from "react";
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import SelectDropdown from "react-native-select-dropdown";
-import ButtonBank from "../../component/ButtonBank";
 
 const AddMonth = () => {
   const navigation = useNavigation();
