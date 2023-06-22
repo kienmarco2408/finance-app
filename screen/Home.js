@@ -249,7 +249,7 @@ const Home = () => {
           </TouchableOpacity>
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
