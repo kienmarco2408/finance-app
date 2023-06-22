@@ -1,80 +1,159 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
-import { StatusBar } from "expo-status-bar";
-import {
-  Octicons,
-  Ionicons,
-  SimpleLineIcons,
-  AntDesign,
-} from "@expo/vector-icons";
-import * as Progress from "react-native-progress";
-import { useNavigation } from "@react-navigation/native";
-import { ScrollView } from "react-native-gesture-handler";
+import { Feather } from "@expo/vector-icons";
 
-export default Home = () => {
-  const navigation = useNavigation();
+const Home = () => {
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <StatusBar style="dark" />
       <View style={styles.header}>
         <View style={styles.totalIncome}>
           <Text style={styles.totalIncomeText}>Tổng thu nhập</Text>
           <Text style={styles.totalIncomeMoney}>120.000.000</Text>
         </View>
-        <View style={styles.menuHeader}>
-          <View style={styles.headerFund}>
-            <View style={styles.fundIn}>
-              <Octicons
-                style={styles.iconFundIn}
-                name="diff-added"
+        <View
+          style={{
+            width: "100%",
+            height: 323,
+            backgroundColor: "#313131",
+            marginTop: 18,
+            borderRadius: 20,
+          }}
+        >
+          <View
+            style={{
+              width: "90%",
+              height: 190,
+              backgroundColor: "#F4F7FF",
+              borderRadius: 20,
+              alignSelf: "center",
+              marginTop: 24,
+              flexDirection: "row",
+              justifyContent: "space-around",
+              alignItems: "center",
+            }}
+          >
+            <View
+              style={{
+                width: "45%",
+                height: 170,
+                backgroundColor: "#F7C45E",
+                borderRadius: 20,
+                alignItems: "center",
+              }}
+            >
+              <Feather
+                name="plus-square"
                 size={24}
                 color="black"
+                style={{
+                  alignSelf: "flex-end",
+                  marginTop: 10,
+                  marginRight: 10,
+                }}
               />
-              <View style={styles.fundInTextCompoment}>
-                <Text style={styles.fundInText}>Khoản thu</Text>
-              </View>
-              <View style={styles.fundInMoneyCompoment}>
-                <Text style={styles.fundInMoney}>25.000.000</Text>
-              </View>
-              <View style={styles.fundInIcon}>
-                <Image
-                  style={styles.imageFundIn}
-                  source={require("../storages/icon/income.png")}
-                />
-                <Text style={styles.fundInIconText}>Tháng 6</Text>
+              <Text style={{ fontSize: 16, height: 22 }}>Khoản thu</Text>
+              <Text
+                style={{
+                  fontSize: 27,
+                  color: "#161719",
+                  fontWeight: "700",
+                  height: 41,
+                }}
+              >
+                25.000.000
+              </Text>
+              <View
+                style={{
+                  backgroundColor: "rgba(244, 247, 255, 1)",
+                  width: "100%",
+                  height: 55,
+                  borderRadius: 16,
+                  marginTop: 18,
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Image source={require("../storages/icon/income.png")} />
+                <Text style={{ marginTop: 12, marginLeft: 19, fontSize: 16 }}>
+                  Tháng 6
+                </Text>
               </View>
             </View>
-            <View style={styles.fund}>
-              <Ionicons
-                style={styles.iconFund}
-                name="md-create"
+            <View
+              style={{
+                width: "45%",
+                height: 170,
+                backgroundColor: "#324EE8",
+                borderRadius: 20,
+                alignItems: "center",
+              }}
+            >
+              <Feather
+                name="edit"
                 size={24}
                 color="white"
+                style={{
+                  alignSelf: "flex-end",
+                  marginTop: 10,
+                  marginRight: 10,
+                }}
               />
-              <View style={styles.fundTextCompoment}>
-                <Text style={styles.fundText}>Ngân sách</Text>
-              </View>
-              <View style={styles.fundMoneyCompoment}>
-                <Text style={styles.fundMoney}>6.947.000</Text>
-              </View>
-              <View style={styles.fundInIcon}>
-                <Image
-                  style={styles.imageFund}
-                  source={require("../storages/icon/fund.png")}
-                />
-                <Text style={styles.fundIconText}>Tháng 6</Text>
+              <Text style={{ fontSize: 16, height: 22, color: "white" }}>
+                Khoản thu
+              </Text>
+              <Text
+                style={{
+                  fontSize: 27,
+                  color: "white",
+                  fontWeight: "700",
+                  height: 41,
+                }}
+              >
+                25.000.000
+              </Text>
+              <View
+                style={{
+                  backgroundColor: "rgba(244, 247, 255, 1)",
+                  width: "100%",
+                  height: 55,
+                  borderRadius: 16,
+                  marginTop: 18,
+                  flexDirection: "row",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Image source={require("../storages/icon/fund.png")} />
+                <Text
+                  style={{
+                    marginTop: 12,
+                    marginLeft: 19,
+                    fontSize: 16,
+                    color: "#324EE8",
+                  }}
+                >
+                  Tháng 6
+                </Text>
               </View>
             </View>
           </View>
-          <View style={styles.headerIcon}>
-            <TouchableOpacity style={styles.icon}>
-              <View style={styles.bill}>
-                <Image
-                  style={styles.billIcon}
-                  source={require("../storages/icon/bill.png")}
-                />
-              </View>
-              <Text style={styles.iconText}>Lập nhóm chia bill</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-around",
+              marginHorizontal: 30,
+              marginTop: 15,
+            }}
+          >
+            <TouchableOpacity style={{ alignItems: "center" }}>
+              <Image source={require("../storages/icon/bill.png")} />
+              <Text
+                style={{ color: "#FFFFFF", width: 70, textAlign: "center" }}
+              >
+                Lập nhóm chia bill
+              </Text>
             </TouchableOpacity>
             <View style={styles.icon}>
               <TouchableOpacity style={styles.save}>
@@ -98,64 +177,6 @@ export default Home = () => {
         </View>
       </View>
       <View style={styles.body}>
-        <View style={styles.content}>
-          <Text style={styles.saveText}>Hoạt động gần đây</Text>
-          <View style={styles.viewall}>
-            <TouchableOpacity style={styles.viewallButton}>
-              <Text style={styles.viewallText}>Xem tất cả</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View style={styles.activities}>
-          <View style={styles.activitiesHome}>
-            <View style={styles.activitiesImg}>
-              <Image
-                style={styles.activitiesImage}
-                source={require("../storages/homeimg/hambuger.png")}
-              />
-            </View>
-            <View style={styles.activitiesComponent}>
-              <Text style={styles.activitiesText}>Ăn uống</Text>
-              <Text style={styles.activitiesSubText}>Bánh mỳ sáng</Text>
-            </View>
-            <View style={styles.activitiesMoney}>
-              <Text style={styles.activitiesMoneyText}>-35.000đ</Text>
-              <Text style={styles.activitiesSubMoneyText}>Hôm nay</Text>
-            </View>
-          </View>
-          <View style={styles.activitiesHome}>
-            <View style={styles.activitiesImg}>
-              <Image
-                style={styles.activitiesImage}
-                source={require("../storages/homeimg/money.png")}
-              />
-            </View>
-            <View style={styles.activitiesComponent}>
-              <Text style={styles.activitiesText}>Lương</Text>
-              <Text style={styles.activitiesSubText}>VP Bank</Text>
-            </View>
-            <View style={styles.activitiesMoney}>
-              <Text style={styles.activitiesMoneyTextDiff}>+20.000.000đ</Text>
-              <Text style={styles.activitiesSubMoneyText}>Hôm nay</Text>
-            </View>
-          </View>
-          <View style={styles.activitiesHome}>
-            <View style={styles.activitiesImg}>
-              <Image
-                style={styles.activitiesImage}
-                source={require("../storages/homeimg/motobike.png")}
-              />
-            </View>
-            <View style={styles.activitiesComponent}>
-              <Text style={styles.activitiesText}>Đi lại</Text>
-              <Text style={styles.activitiesSubText}>Grab</Text>
-            </View>
-            <View style={styles.activitiesMoney}>
-              <Text style={styles.activitiesMoneyText}>-18.000đ</Text>
-              <Text style={styles.activitiesSubMoneyText}>Hôm nay</Text>
-            </View>
-          </View>
-        </View>
         <View style={styles.content}>
           <Text style={styles.saveText}>Tiết kiệm</Text>
           <View style={styles.viewall}>
@@ -204,51 +225,28 @@ export default Home = () => {
             <SimpleLineIcons name="arrow-right" size={20} color="black" />
           </TouchableOpacity>
         </View>
-        <View style={styles.content}>
-          <Text style={styles.saveText}>Qũy nhóm</Text>
-          <View style={styles.viewall}>
-            <TouchableOpacity style={styles.viewallButton}>
-              <Text style={styles.viewallText}>Xem tất cả</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View style={styles.fundGroup}>
-          <View style={styles.fundGroupHeader}>
-            <Text style={styles.fundGroupHeaderText}>
-              Nhà của chúng mìnhhhh
-            </Text>
-          </View>
-          <View style={styles.fundGroupMoney}>
-            <Text style={styles.fundGroupMoneyText}>Ngân sách còn:</Text>
-            <Text style={styles.fundGroupMoneySubText}>1.000.000đ</Text>
-          </View>
-          <View style={styles.fundPeople}>
+        <View style={styles.providentFund}>
+          <View style={styles.providentFundCircle}>
             <Image
-              style={styles.fundGroupImage}
-              source={require("../storages/homeimg/people.png")}
+              style={styles.providentFundImage}
+              source={require("../storages/icon/burger.png")}
             />
-            <View style={styles.fundGroupPeople}>
-              <Text style={styles.fundGroupPeopleText}>+5 thành viên</Text>
-            </View>
           </View>
-        </View>
-        <View style={styles.fundCompany}>
-          <View style={styles.fundGroupHeader}>
-            <Text style={styles.fundGroupHeaderText}>Quỹ văn phòng</Text>
+          <View style={styles.providentFundComponent}>
+            <Text style={styles.providentFundText}>Quỹ tiết kiệm</Text>
+            <Text style={styles.providentFundAddText}>Thêm quỹ tiết kiệm</Text>
           </View>
-          <View style={styles.fundGroupMoney}>
-            <Text style={styles.fundGroupMoneyText}>Ngân sách còn:</Text>
-            <Text style={styles.fundGroupMoneySubText}>500.000đ</Text>
-          </View>
-          <View style={styles.fundPeople}>
-            <Image
-              style={styles.fundGroupImage}
-              source={require("../storages/homeimg/people.png")}
+          <TouchableOpacity>
+            <AntDesign
+              onPress={() => {
+                navigation.navigate("AddFund");
+              }}
+              style={styles.providentFundIcon}
+              name="plus"
+              size={24}
+              color="white"
             />
-            <View style={styles.fundGroupPeople}>
-              <Text style={styles.fundGroupPeopleText}>+9 thành viên</Text>
-            </View>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>
@@ -475,64 +473,9 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 18,
   },
-  activities: {
-    width: 430,
-    height: 130,
-    marginTop: 180,
-  },
-  activitiesHome: {
-    width: 390,
-    height: 90,
-    left: 20,
-    marginBottom: 15,
-    borderRadius: 20,
-    flexDirection: "row",
-    backgroundColor: "rgba(195, 195, 195, 0.3)",
-  },
-  activitiesImg: {
-    width: 60,
-    height: 60,
-    marginLeft: 10,
-    marginTop: 10,
-  },
-  activitiesComponent: {
-    width: 234,
-    height: 60,
-    marginLeft: 15,
-    marginTop: 20,
-  },
-  activitiesText: {
-    fontSize: 16,
-    color: "#292B2D",
-    marginBottom: 10,
-  },
-  activitiesSubText: {
-    fontWeight: 300,
-  },
-  activitiesMoney: {
-    width: 180,
-    height: 60,
-    gap: 12,
-    top: 15,
-    right: 20,
-  },
-  activitiesMoneyText: {
-    color: "#FD3C4A",
-    fontSize: 16,
-  },
-  activitiesSubMoneyText: {
-    fontWeight: 300,
-    marginLeft: 10,
-  },
-  activitiesMoneyTextDiff: {
-    color: "rgba(0, 168, 7, 1)",
-    fontSize: 16,
-    right: 35,
-  },
   saveProgess: {
     top: 180,
     left: 10,
-    marginBottom: 20,
     flexDirection: "row",
   },
   buy: {
@@ -619,74 +562,5 @@ const styles = StyleSheet.create({
   },
   providentFundIcon: {
     marginRight: 45,
-  },
-  fundGroup: {
-    width: 390,
-    height: 150,
-    marginLeft: 20,
-    marginTop: 200,
-    marginBottom: 20,
-    borderRadius: 35,
-    backgroundColor: "#F9DC5C",
-  },
-  fundGroupHeader: {
-    width: 250,
-    height: 30,
-    marginTop: 24,
-    marginLeft: 17,
-  },
-  fundGroupHeaderText: {
-    fontWeight: 900,
-    fontSize: 18,
-    color: "rgba(53, 44, 44, 1)",
-  },
-  fundGroupMoney: {
-    flexDirection: "row",
-    width: 200,
-    height: 20,
-    marginLeft: 20,
-  },
-  fundGroupMoneyText: {
-    fontWeight: 300,
-  },
-  fundGroupMoneySubText: {
-    fontWeight: 800,
-    marginLeft: 3,
-  },
-  fundPeople: {
-    width: 300,
-    height: 40,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  fundGroupImage: {
-    marginLeft: 20,
-    marginTop: 10,
-  },
-  fundGroupPeople: {
-    width: 120,
-    height: 40,
-    left: 70,
-    marginTop: 10,
-    borderRadius: 25,
-    paddingVertical: 10,
-    paddingHorizontal: 11,
-    backgroundColor: "rgba(0, 0, 0, 1)",
-  },
-  fundGroupPeopleText: {
-    width: 100,
-    height: 20,
-    fontWeight: 700,
-    alignItems: "center",
-    color: "rgba(255, 255, 255, 1)",
-  },
-  fundCompany: {
-    width: 390,
-    height: 150,
-    marginLeft: 20,
-    marginTop: 10,
-    marginBottom: 50,
-    borderRadius: 35,
-    backgroundColor: "#F7C45E",
   },
 });
