@@ -16,7 +16,7 @@ import { useNavigation } from "@react-navigation/native";
 const Home = () => {
   const navigation = useNavigation();
   return (
-    <View>
+    <ScrollView>
       <View
         style={{
           backgroundColor: "#FFCAD4",
@@ -189,7 +189,7 @@ const Home = () => {
               <Text
                 style={{ color: "#FFFFFF", width: 70, textAlign: "center" }}
               >
-                Lập nhóm chia bill
+                Mục tiêu tiết kiệm
               </Text>
             </TouchableOpacity>
             <TouchableOpacity style={{ alignItems: "center" }}>
@@ -197,73 +197,10 @@ const Home = () => {
               <Text
                 style={{ color: "#FFFFFF", width: 70, textAlign: "center" }}
               >
-                Lập nhóm chia bill
+                Lịch sử giao dịch
               </Text>
             </TouchableOpacity>
           </View>
-        </View>
-        <View style={styles.saveProgess}>
-          <TouchableOpacity
-            style={styles.buy}
-            onPress={() => {
-              navigation.navigate("FundDetail");
-            }}
-          >
-            <View style={styles.productInformation}>
-              <Text style={styles.productName}>Macbook Pro M1</Text>
-              <Text style={styles.productPrice}>12.000.000đ</Text>
-              <Text style={styles.productFirstPrice}>24.000.000đ</Text>
-              <Progress.Bar
-                progress={0.4}
-                width={180}
-                color="red"
-                borderColor="#CEDFBC"
-              />
-            </View>
-            <SimpleLineIcons name="arrow-right" size={20} color="black" />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.buy}
-            onPress={() => {
-              navigation.navigate("FundDetail");
-            }}
-          >
-            <View style={styles.productInformation}>
-              <Text style={styles.productName}>Đi Thái Lan</Text>
-              <Text style={styles.productPrice}>4.000.000đ</Text>
-              <Text style={styles.productFirstPrice}>7.000.000đ</Text>
-              <Progress.Bar
-                progress={0.7}
-                width={180}
-                color="green"
-                borderColor="#CEDFBC"
-              />
-            </View>
-            <SimpleLineIcons name="arrow-right" size={20} color="black" />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.providentFund}>
-          <View style={styles.providentFundCircle}>
-            <Image
-              style={styles.providentFundImage}
-              source={require("../storages/icon/burger.png")}
-            />
-          </View>
-          <View style={styles.providentFundComponent}>
-            <Text style={styles.providentFundText}>Quỹ tiết kiệm</Text>
-            <Text style={styles.providentFundAddText}>Thêm quỹ tiết kiệm</Text>
-          </View>
-          <TouchableOpacity>
-            <AntDesign
-              onPress={() => {
-                navigation.navigate("AddFund");
-              }}
-              style={styles.providentFundIcon}
-              name="plus"
-              size={24}
-              color="white"
-            />
-          </TouchableOpacity>
         </View>
       </View>
       <View style={{ marginTop: 20, paddingBottom: 50 }}>
@@ -357,6 +294,8 @@ const Home = () => {
     </ScrollView>
   );
 };
+
+export default Home;
 
 const styles = StyleSheet.create({
   container: {},
@@ -579,7 +518,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   saveProgess: {
-    top: 180,
+    top: 200,
     left: 10,
     flexDirection: "row",
   },
