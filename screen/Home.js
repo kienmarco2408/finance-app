@@ -1,15 +1,44 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React from "react";
 import { Feather } from "@expo/vector-icons";
+import CardActivity from "../component/CardActivity";
+import CardSaving from "../component/CardSaving";
+import FundCard from "../component/FundCard";
+import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
+  const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <StatusBar style="dark" />
-      <View style={styles.header}>
-        <View style={styles.totalIncome}>
-          <Text style={styles.totalIncomeText}>Tổng thu nhập</Text>
-          <Text style={styles.totalIncomeMoney}>120.000.000</Text>
+    <View>
+      <View
+        style={{
+          backgroundColor: "#FFCAD4",
+          width: "100%",
+          height: 507,
+          borderRadius: 20,
+        }}
+      >
+        <View style={{ alignItems: "center", marginTop: 83 }}>
+          <Text style={{ fontSize: 16, color: "#91919F", height: 22 }}>
+            Tổng thu nhập
+          </Text>
+          <Text
+            style={{
+              fontSize: 40,
+              color: "#161719",
+              fontWeight: "500",
+              height: 60,
+            }}
+          >
+            120.000.000
+          </Text>
         </View>
         <View
           style={{
@@ -155,33 +184,21 @@ const Home = () => {
                 Lập nhóm chia bill
               </Text>
             </TouchableOpacity>
-            <View style={styles.icon}>
-              <TouchableOpacity style={styles.save}>
-                <Image
-                  style={styles.billIcon}
-                  source={require("../storages/icon/save.png")}
-                />
-              </TouchableOpacity>
-              <Text style={styles.iconText}>Mục tiêu tiết kiệm</Text>
-            </View>
-            <View style={styles.icon}>
-              <TouchableOpacity style={styles.history}>
-                <Image
-                  style={styles.billIcon}
-                  source={require("../storages/icon/history.png")}
-                />
-              </TouchableOpacity>
-              <Text style={styles.iconText}>Lịch sử giao dịch</Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View style={styles.body}>
-        <View style={styles.content}>
-          <Text style={styles.saveText}>Tiết kiệm</Text>
-          <View style={styles.viewall}>
-            <TouchableOpacity style={styles.viewallButton}>
-              <Text style={styles.viewallText}>Xem tất cả</Text>
+            <TouchableOpacity style={{ alignItems: "center" }}>
+              <Image source={require("../storages/icon/save.png")} />
+              <Text
+                style={{ color: "#FFFFFF", width: 70, textAlign: "center" }}
+              >
+                Lập nhóm chia bill
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={{ alignItems: "center" }}>
+              <Image source={require("../storages/icon/history.png")} />
+              <Text
+                style={{ color: "#FFFFFF", width: 70, textAlign: "center" }}
+              >
+                Lập nhóm chia bill
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -249,7 +266,95 @@ const Home = () => {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+      <View style={{ marginTop: 20, paddingBottom: 50 }}>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginHorizontal: "7%",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ fontSize: 20, fontWeight: 500 }}>
+            Hoạt động gần đây
+          </Text>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Fund Stack")}
+            style={{
+              backgroundColor: "rgba(195, 195, 195, 0.3)",
+              width: 98,
+              height: 32,
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 40,
+            }}
+          >
+            <Text style={{ color: "#828282", fontWeight: "300" }}>
+              Xem tất cả
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{ alignSelf: "center", marginTop: 15 }}>
+          <CardActivity />
+        </View>
+        <View
+          style={{
+            marginTop: 30,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginHorizontal: "7%",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ fontSize: 20, fontWeight: 500 }}>Tiết kiệm</Text>
+          <TouchableOpacity
+            style={{
+              backgroundColor: "rgba(195, 195, 195, 0.3)",
+              width: 98,
+              height: 32,
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 40,
+            }}
+          >
+            <Text style={{ color: "#828282", fontWeight: "300" }}>
+              Xem tất cả
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <ScrollView horizontal style={{ marginTop: 15, marginHorizontal: 40 }}>
+          <CardSaving />
+        </ScrollView>
+        <View
+          style={{
+            marginTop: 30,
+            flexDirection: "row",
+            justifyContent: "space-between",
+            marginHorizontal: "7%",
+            alignItems: "center",
+          }}
+        >
+          <Text style={{ fontSize: 20, fontWeight: 500 }}>Quỹ nhóm</Text>
+          <TouchableOpacity
+            style={{
+              backgroundColor: "rgba(195, 195, 195, 0.3)",
+              width: 98,
+              height: 32,
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: 40,
+            }}
+          >
+            <Text style={{ color: "#828282", fontWeight: "300" }}>
+              Xem tất cả
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{ marginTop: 10, alignSelf: "center" }}>
+          <FundCard />
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 

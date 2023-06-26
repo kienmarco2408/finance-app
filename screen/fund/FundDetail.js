@@ -92,11 +92,10 @@ export default FundDetail = () => {
           </View>
           <View style={styles.addFund}>
             <Text style={styles.addFundText}>Nộp quỹ tháng 5</Text>
-            <View style={styles.inputBox}>
-              <TextInput style={styles.inputFund}>
-                <Text style={styles.inputFundText}>Nhập số tiền</Text>
-              </TextInput>
-            </View>
+            <TextInput
+              style={styles.inputFundText}
+              placeholder="Nhập số tiền"
+            />
             <TouchableOpacity style={styles.updateButton}>
               <Text style={styles.updateText}>Cập nhật quỹ</Text>
             </TouchableOpacity>
@@ -269,15 +268,7 @@ const styles = StyleSheet.create({
     fontWeight: 300,
     lineHeight: 19,
   },
-  inputBox: {
-    width: 390,
-    height: 60,
-    top: 20,
-    borderRadius: 16,
-    borderColor: "#E0533D",
-    borderWidth: 1.5,
-    backgroundColor: "#E0533D",
-  },
+
   inputFund: {
     width: 280,
     height: 40,
@@ -286,10 +277,13 @@ const styles = StyleSheet.create({
   },
   inputFundText: {
     fontSize: 16,
-    fontWeight: 400,
-    lineHeight: 22,
-    marginLeft: 30,
+    marginTop: 10,
     color: "#FFFFFF",
+    width: 390,
+    height: 56,
+    backgroundColor: "#E0533D",
+    borderRadius: 16,
+    paddingLeft: 20,
   },
   updateButton: {
     width: 390,
