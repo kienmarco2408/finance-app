@@ -1,13 +1,21 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
+import CardActivity from "../component/CardActivity";
 
 export default Exchange = () => {
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView style={styles.container}>
       <StatusBar style="dark" />
       <View style={styles.header}>
         <TouchableOpacity style={styles.month}>
@@ -45,44 +53,8 @@ export default Exchange = () => {
           <Text style={styles.exchangeHistoryButtonText}>Xem tất cả</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.exchange}>
-        <View style={styles.exchangeLeft}>
-          <Image source={require("../storages/homeimg/hambuger.png")} />
-          <View style={styles.exchangeLeftText}>
-            <Text style={styles.exchangeLeftTextUp}>Ăn uống</Text>
-            <Text style={styles.exchangeLeftTextDown}>Bánh mỳ sáng</Text>
-          </View>
-        </View>
-        <View style={styles.exchangeRight}>
-          <Text style={styles.exchangeRightUp}>-35.000đ</Text>
-          <Text style={styles.exchangeRightDown}>Hôm nay</Text>
-        </View>
-      </View>
-      <View style={styles.exchange}>
-        <View style={styles.exchangeLeft}>
-          <Image source={require("../storages/homeimg/money.png")} />
-          <View style={styles.exchangeLeftText}>
-            <Text style={styles.exchangeLeftTextUp}>Lương</Text>
-            <Text style={styles.exchangeLeftTextDown}>VP Bank</Text>
-          </View>
-        </View>
-        <View style={styles.exchangeRight}>
-          <Text style={styles.exchangeRightUpText}>+20.000.000đ</Text>
-          <Text style={styles.exchangeRightDownText}>Hôm nay</Text>
-        </View>
-      </View>
-      <View style={styles.exchange}>
-        <View style={styles.exchangeLeft}>
-          <Image source={require("../storages/homeimg/motobike.png")} />
-          <View style={styles.exchangeLeftText}>
-            <Text style={styles.exchangeLeftTextUp}>Đi lại</Text>
-            <Text style={styles.exchangeLeftTextDown}>Grab</Text>
-          </View>
-        </View>
-        <View style={styles.exchangeRight}>
-          <Text style={styles.exchangeRightUp}>-18.000đ</Text>
-          <Text style={styles.exchangeRightDown}>Hôm nay</Text>
-        </View>
+      <View style={{ alignSelf: "center" }}>
+        <CardActivity />
       </View>
       <View style={styles.exchangeHistory}>
         <Text style={styles.exchangeHistoryText}>Hôm qua</Text>
@@ -90,39 +62,17 @@ export default Exchange = () => {
           <Text style={styles.exchangeHistoryButtonText}>Xem tất cả</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.exchange}>
-        <View style={styles.exchangeLeft}>
-          <Image source={require("../storages/homeimg/hambuger.png")} />
-          <View style={styles.exchangeLeftText}>
-            <Text style={styles.exchangeLeftTextUp}>Ăn uống</Text>
-            <Text style={styles.exchangeLeftTextDown}>Bánh mỳ sáng</Text>
-          </View>
-        </View>
-        <View style={styles.exchangeRight}>
-          <Text style={styles.exchangeRightUp}>-35.000đ</Text>
-          <Text style={styles.exchangeRightDown}>Hôm nay</Text>
-        </View>
+      <View style={{ alignSelf: "center", paddingBottom: 70 }}>
+        <CardActivity />
       </View>
-      <View style={styles.exchange}>
-        <View style={styles.exchangeLeft}>
-          <Image source={require("../storages/homeimg/motobike.png")} />
-          <View style={styles.exchangeLeftText}>
-            <Text style={styles.exchangeLeftTextUp}>Đi lại</Text>
-            <Text style={styles.exchangeLeftTextDown}>Grab</Text>
-          </View>
-        </View>
-        <View style={styles.exchangeRight}>
-          <Text style={styles.exchangeRightUp}>-18.000đ</Text>
-          <Text style={styles.exchangeRightDown}>Hôm nay</Text>
-        </View>
-      </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 50,
   },
   header: {
     marginHorizontal: 16,

@@ -33,6 +33,7 @@ const CardSaving = () => {
   return card.map((item) => {
     return (
       <TouchableOpacity
+        key={item.id}
         onPress={() => {
           navigation.navigate("FundDetail");
         }}
