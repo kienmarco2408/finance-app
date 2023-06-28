@@ -26,6 +26,7 @@ import AddFund from "../screen/fund/AddFund";
 import AddFundSuccess from "../screen/fund/AddFundSuccess";
 import FundDetail from "../screen/fund/FundDetail";
 import SimpleModal from "../component/SimpleModal";
+import HistoryExchange from "../screen/HistoryExchange";
 
 const HomeStack = createNativeStackNavigator();
 function HomeStacks() {
@@ -41,6 +42,10 @@ function ExchangeStacks() {
   return (
     <ExchangeStack.Navigator screenOptions={{ headerShown: false }}>
       <ExchangeStack.Screen name="Exchange Stack" component={Exchange} />
+      <ExchangeStack.Screen
+        name="HistoryExchange"
+        component={HistoryExchange}
+      />
     </ExchangeStack.Navigator>
   );
 }

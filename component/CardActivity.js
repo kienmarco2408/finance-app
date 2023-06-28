@@ -1,7 +1,9 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const CardActivity = () => {
+  const navigation = useNavigation();
   const card = [
     {
       id: 1,
@@ -33,7 +35,8 @@ const CardActivity = () => {
   ];
   return card.map((item, index) => {
     return (
-      <View
+      <TouchableOpacity
+        onPress={() => navigation.navigate("HistoryExchange")}
         key={index}
         style={{
           marginTop: 12,
@@ -84,7 +87,7 @@ const CardActivity = () => {
             <Text style={{ color: "#91919F" }}>Hôm nay</Text>
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   });
 };
