@@ -1,10 +1,26 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import {
+  Image,
+  Modal,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import React, { useState } from "react";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 
 const HistoryExchange = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleModal = () => {
+    setModalVisible(true);
+  };
+
+  const handleCancelDelete = () => {
+    setModalVisible(false);
+  };
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <View
         style={{
           width: "100%",
@@ -26,7 +42,12 @@ const HistoryExchange = () => {
           <Text style={{ fontSize: 18, color: "#FFFFFF", fontWeight: "600" }}>
             Chi tiết giao dịch
           </Text>
-          <Ionicons name="trash" size={24} color="#FFFFFF" />
+          <Ionicons
+            name="trash"
+            size={24}
+            color="#FFFFFF"
+            onPress={handleModal}
+          />
         </View>
         <Text
           style={{
@@ -119,6 +140,132 @@ const HistoryExchange = () => {
           </View>
         </View>
       </View>
+      <View style={{ flex: 1, marginTop: 71, marginHorizontal: "10%" }}>
+        <View>
+          <Text style={{ fontSize: 16, fontWeight: "300", color: "#91919F" }}>
+            Mô tả
+          </Text>
+          <Text style={{ fontSize: 16, fontWeight: "500", color: "#0D0E0F" }}>
+            Ăn sáng đặt shoppe food
+          </Text>
+        </View>
+        <View style={{ marginTop: 73 }}>
+          <Text style={{ fontSize: 16, color: "#91919F", fontWeight: "300" }}>
+            Hình ảnh
+          </Text>
+          <Image
+            style={{ width: 343, height: 168, borderRadius: 8, marginTop: 16 }}
+            source={require("../storages/fund/img.png")}
+          />
+        </View>
+        <View
+          style={{
+            width: 343,
+            height: 56,
+            borderRadius: 100,
+            backgroundColor: "#F7C45E",
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 40,
+          }}
+        >
+          <Text style={{ fontSize: 20, fontWeight: "500", color: "#313131" }}>
+            Chỉnh sửa
+          </Text>
+        </View>
+      </View>
+      <Modal visible={modalVisible} animationType="slide" transparent={true}>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "flex-end",
+            alignItems: "center",
+            backgroundColor: "rgba(13, 14, 15, 0.3)",
+          }}
+        >
+          <View
+            style={{
+              backgroundColor: "#fff",
+              padding: 40,
+              width: "100%",
+              height: 251,
+              borderRadius: 20,
+            }}
+          >
+            <Text
+              style={{
+                textAlign: "center",
+                fontSize: 20,
+                color: "#000000",
+                fontWeight: "700",
+              }}
+            >
+              Xóa giao dịch này?
+            </Text>
+            <Text
+              style={{
+                textAlign: "center",
+                marginTop: "6%",
+                color: "#91919F",
+                fontSize: 16,
+              }}
+            >
+              Bạn có chắc sẽ xóa giao dịch này?
+            </Text>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-around",
+                marginTop: "8%",
+              }}
+            >
+              <TouchableOpacity
+                style={{
+                  width: 164,
+                  borderWidth: 2,
+                  borderColor: "#F7C45E",
+                  height: 56,
+                  justifyContent: "center",
+                  borderRadius: 20,
+                }}
+              >
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontSize: 16,
+                    color: "#313131",
+                    fontWeight: "600",
+                  }}
+                >
+                  Có
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={handleCancelDelete}
+                style={{
+                  width: 164,
+                  height: 56,
+                  justifyContent: "center",
+                  borderRadius: 20,
+                  backgroundColor: "#F7C45E",
+                }}
+              >
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontSize: 16,
+                    color: "#313131",
+                    fontWeight: "600",
+                  }}
+                >
+                  Không
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
