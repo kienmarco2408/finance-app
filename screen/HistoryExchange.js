@@ -1,6 +1,7 @@
 import {
   Image,
   Modal,
+  Pressable,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -11,6 +12,7 @@ import { AntDesign, Ionicons } from "@expo/vector-icons";
 
 const HistoryExchange = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [notiVisibale, setNotiVisible] = useState(false);
 
   const handleModal = () => {
     setModalVisible(true);
@@ -19,6 +21,16 @@ const HistoryExchange = () => {
   const handleCancelDelete = () => {
     setModalVisible(false);
   };
+
+  const handleNoti = () => {
+    setModalVisible(false);
+    setNotiVisible(true);
+  };
+
+  const handleCloseNoti = () => {
+    setNotiVisible(false);
+  };
+
   return (
     <View style={{ flex: 1 }}>
       <View
@@ -220,6 +232,7 @@ const HistoryExchange = () => {
               }}
             >
               <TouchableOpacity
+                onPress={handleNoti}
                 style={{
                   width: 164,
                   borderWidth: 2,
@@ -264,6 +277,41 @@ const HistoryExchange = () => {
               </TouchableOpacity>
             </View>
           </View>
+        </View>
+      </Modal>
+      <Modal visible={notiVisibale} animationType="slide" transparent={true}>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "rgba(13, 14, 15, 0.3)",
+          }}
+        >
+          <Pressable onPress={handleCloseNoti}>
+            <View
+              style={{
+                backgroundColor: "#fff",
+                padding: 40,
+                width: 328,
+                height: 144,
+                borderRadius: 20,
+                alignItems: "center",
+              }}
+            >
+              <AntDesign name="checkcircle" size={48} color="#324EE8" />
+              <Text
+                style={{
+                  textAlign: "center",
+                  marginTop: "6%",
+                  color: "#91919F",
+                  fontSize: 16,
+                }}
+              >
+                Quỹ tiết kiệm đã được xóa
+              </Text>
+            </View>
+          </Pressable>
         </View>
       </Modal>
     </View>

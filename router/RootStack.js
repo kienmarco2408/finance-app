@@ -6,7 +6,7 @@ import Exchange from "../screen/Exchange";
 import Home from "../screen/Home";
 import Add from "../screen/Add";
 import Statistical from "../screen/Statistical";
-import Fund from "../screen/fund/Fund";
+import Fund from "../screen/Fund";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import Login from "../screen/Login";

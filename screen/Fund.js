@@ -17,7 +17,7 @@ import {
 } from "@expo/vector-icons";
 import * as Progress from "react-native-progress";
 import { useNavigation } from "@react-navigation/native";
-import CardSaving from "../../component/CardSaving";
+import CardSaving from "../component/CardSaving";
 
 export default Fund = () => {
   const navigation = useNavigation();
@@ -112,7 +112,7 @@ export default Fund = () => {
                     justifyContent: "center",
                   }}
                 >
-                  <Image source={require("../../storages/icon/income.png")} />
+                  <Image source={require("../storages/icon/income.png")} />
                   <Text style={{ marginTop: 12, marginLeft: 19, fontSize: 16 }}>
                     Tháng 6
                   </Text>
@@ -162,7 +162,7 @@ export default Fund = () => {
                     justifyContent: "center",
                   }}
                 >
-                  <Image source={require("../../storages/icon/fund.png")} />
+                  <Image source={require("../storages/icon/fund.png")} />
                   <Text
                     style={{
                       marginTop: 12,
@@ -185,7 +185,7 @@ export default Fund = () => {
               }}
             >
               <TouchableOpacity style={{ alignItems: "center" }}>
-                <Image source={require("../../storages/icon/bill.png")} />
+                <Image source={require("../storages/icon/bill.png")} />
                 <Text
                   style={{ color: "#FFFFFF", width: 70, textAlign: "center" }}
                 >
@@ -193,7 +193,7 @@ export default Fund = () => {
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style={{ alignItems: "center" }}>
-                <Image source={require("../../storages/icon/save.png")} />
+                <Image source={require("../storages/icon/save.png")} />
                 <Text
                   style={{ color: "#FFFFFF", width: 70, textAlign: "center" }}
                 >
@@ -201,7 +201,7 @@ export default Fund = () => {
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style={{ alignItems: "center" }}>
-                <Image source={require("../../storages/icon/history.png")} />
+                <Image source={require("../storages/icon/history.png")} />
                 <Text
                   style={{ color: "#FFFFFF", width: 70, textAlign: "center" }}
                 >
@@ -245,7 +245,7 @@ export default Fund = () => {
         <View style={styles.providentFundCircle}>
           <Image
             style={styles.providentFundImage}
-            source={require("../../storages/icon/burger.png")}
+            source={require("../storages/icon/burger.png")}
           />
         </View>
         <View style={styles.providentFundComponent}>
