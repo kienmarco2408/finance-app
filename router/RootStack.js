@@ -22,11 +22,14 @@ import AddMoney2 from "../screen/addinfor/AddMoney2";
 import AddMonth from "../screen/addinfor/AddMonth";
 import MonthlyBudget from "../screen/addinfor/MonthlyBudget";
 import DoneMonth from "../screen/addinfor/DoneMonth";
-import AddFund from "../screen/fund/AddFund";
-import AddFundSuccess from "../screen/fund/AddFundSuccess";
-import FundDetail from "../screen/fund/FundDetail";
-import SimpleModal from "../component/SimpleModal";
 import HistoryExchange from "../screen/HistoryExchange";
+import Saving from "../screen/Saving";
+import AddSavingSuccess from "../screen/saving/AddSavingSuccess";
+import AddSaving from "../screen/saving/AddSaving";
+import SavingDetail from "../screen/saving/SavingDetail";
+import AddFund from "../screen/fund/AddFund";
+import AddMember from "../screen/fund/AddMember";
+import FundMember from "../screen/fund/FundMember";
 
 const HomeStack = createNativeStackNavigator();
 function HomeStacks() {
@@ -298,10 +301,13 @@ const RootStack = () => {
         <Stacks.Screen name="MonthlyBudget" component={MonthlyBudget} />
         <Stacks.Screen name="DoneMonth" component={DoneMonth} />
         <Stacks.Screen name="Tabs" component={Tabs} />
+        <Stacks.Screen name="AddSaving" component={AddSaving} />
+        <Stacks.Screen name="AddSavingSuccess" component={AddSavingSuccess} />
+        <Stacks.Screen name="SavingDetail" component={SavingDetail} />
+        <Stacks.Screen name="Saving" component={Saving} />
         <Stacks.Screen name="AddFund" component={AddFund} />
-        <Stacks.Screen name="AddFundSuccess" component={AddFundSuccess} />
-        <Stacks.Screen name="FundDetail" component={FundDetail} />
-        <Stacks.Screen name="SimpleModel" component={SimpleModal} />
+        <Stacks.Screen name="AddMember" component={AddMember} />
+        <Stacks.Screen name="FundMember" component={FundMember} />
       </Stacks.Navigator>
     </NavigationContainer>
   );

@@ -9,8 +9,10 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const HistoryExchange = () => {
+  const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
   const [notiVisibale, setNotiVisible] = useState(false);
 
@@ -50,7 +52,12 @@ const HistoryExchange = () => {
             justifyContent: "space-around",
           }}
         >
-          <AntDesign name="arrowleft" size={24} color="#FFFFFF" />
+          <AntDesign
+            onPress={() => navigation.goBack()}
+            name="arrowleft"
+            size={24}
+            color="#FFFFFF"
+          />
           <Text style={{ fontSize: 18, color: "#FFFFFF", fontWeight: "600" }}>
             Chi tiết giao dịch
           </Text>
@@ -186,7 +193,7 @@ const HistoryExchange = () => {
           </Text>
         </View>
       </View>
-      <Modal visible={modalVisible} animationType="slide" transparent={true}>
+      <Modal visible={modalVisible} animationType="none" transparent={true}>
         <View
           style={{
             flex: 1,
@@ -279,7 +286,7 @@ const HistoryExchange = () => {
           </View>
         </View>
       </Modal>
-      <Modal visible={notiVisibale} animationType="slide" transparent={true}>
+      <Modal visible={notiVisibale} animationType="none" transparent={true}>
         <View
           style={{
             flex: 1,

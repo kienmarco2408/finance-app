@@ -184,7 +184,10 @@ const Home = () => {
                 Lập nhóm chia bill
               </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{ alignItems: "center" }}>
+            <TouchableOpacity
+              style={{ alignItems: "center" }}
+              onPress={() => navigation.navigate("Saving")}
+            >
               <Image source={require("../storages/icon/save.png")} />
               <Text
                 style={{ color: "#FFFFFF", width: 70, textAlign: "center" }}
@@ -216,7 +219,7 @@ const Home = () => {
             Hoạt động gần đây
           </Text>
           <TouchableOpacity
-            onPress={() => navigation.navigate("Fund Stack")}
+            onPress={() => navigation.navigate("Saving")}
             style={{
               backgroundColor: "rgba(195, 195, 195, 0.3)",
               width: 98,

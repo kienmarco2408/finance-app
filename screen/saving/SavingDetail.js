@@ -4,6 +4,7 @@ import {
   View,
   TextInput,
   TouchableOpacity,
+  Pressable,
 } from "react-native";
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
@@ -12,13 +13,27 @@ import { useNavigation } from "@react-navigation/native";
 import { AntDesign, Ionicons, MaterialIcons } from "@expo/vector-icons";
 import * as Progress from "react-native-progress";
 import { Modal } from "react-native-paper";
-import SimpleModal from "../../component/SimpleModal";
 
-export default FundDetail = () => {
+export default SavingDetail = () => {
   const navigation = useNavigation();
-  const [isModalVisible, setisModalVisible] = useState(false);
-  const changeModalVisible = (bool) => {
-    setisModalVisible(bool);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [notiVisibale, setNotiVisible] = useState(false);
+
+  const handleModal = () => {
+    setModalVisible(true);
+  };
+
+  const handleCancelDelete = () => {
+    setModalVisible(false);
+  };
+
+  const handleNoti = () => {
+    setModalVisible(false);
+    setNotiVisible(true);
+  };
+
+  const handleCloseNoti = () => {
+    setNotiVisible(false);
   };
 
   return (
@@ -28,26 +43,15 @@ export default FundDetail = () => {
         <View style={styles.headerBar}>
           <AntDesign
             onPress={() => {
-              navigation.navigate("Fund");
+              navigation.navigate("Home");
             }}
             name="close"
             size={26}
             color="black"
           />
           <Text style={styles.headerText}>Chi tiết quỹ tiết kiệm</Text>
-          <TouchableOpacity
-            style={styles.buttonDelete}
-            onPress={() => changeModalVisible(true)}
-          >
+          <TouchableOpacity style={styles.buttonDelete} onPress={handleModal}>
             <Ionicons name="ios-trash" size={26} color="black" />
-            <Modal
-              transparent={true}
-              animationType="fade"
-              visible={isModalVisible}
-              nRequestClose={() => changeModalVisible(false)}
-            >
-              <SimpleModal />
-            </Modal>
           </TouchableOpacity>
         </View>
       </View>
@@ -102,6 +106,128 @@ export default FundDetail = () => {
           </View>
         </View>
       </View>
+      <Modal visible={modalVisible} animationType="none" transparent={true}>
+        <View
+          style={{
+            top: 330,
+          }}
+        >
+          <View
+            style={{
+              backgroundColor: "#fff",
+              padding: 40,
+              width: "100%",
+              height: 251,
+              borderRadius: 20,
+            }}
+          >
+            <Text
+              style={{
+                textAlign: "center",
+                fontSize: 20,
+                color: "#000000",
+                fontWeight: "700",
+              }}
+            >
+              Xóa giao dịch này?
+            </Text>
+            <Text
+              style={{
+                textAlign: "center",
+                marginTop: "6%",
+                color: "#91919F",
+                fontSize: 16,
+              }}
+            >
+              Bạn có chắc sẽ xóa giao dịch này?
+            </Text>
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "space-around",
+                marginTop: "8%",
+              }}
+            >
+              <TouchableOpacity
+                onPress={handleNoti}
+                style={{
+                  width: 164,
+                  borderWidth: 2,
+                  borderColor: "#F7C45E",
+                  height: 56,
+                  justifyContent: "center",
+                  borderRadius: 20,
+                }}
+              >
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontSize: 16,
+                    color: "#313131",
+                    fontWeight: "600",
+                  }}
+                >
+                  Có
+                </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity
+                onPress={handleCancelDelete}
+                style={{
+                  width: 164,
+                  height: 56,
+                  justifyContent: "center",
+                  borderRadius: 20,
+                  backgroundColor: "#F7C45E",
+                }}
+              >
+                <Text
+                  style={{
+                    textAlign: "center",
+                    fontSize: 16,
+                    color: "#313131",
+                    fontWeight: "600",
+                  }}
+                >
+                  Không
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
+      <Modal visible={notiVisibale} animationType="none" transparent={true}>
+        <View
+          style={{
+            alignItems: "center",
+          }}
+        >
+          <Pressable onPress={handleCloseNoti}>
+            <View
+              style={{
+                backgroundColor: "#fff",
+                padding: 40,
+                width: 328,
+                height: 144,
+                borderRadius: 20,
+                alignItems: "center",
+              }}
+            >
+              <AntDesign name="checkcircle" size={48} color="#324EE8" />
+              <Text
+                style={{
+                  textAlign: "center",
+                  marginTop: "6%",
+                  color: "#91919F",
+                  fontSize: 16,
+                }}
+              >
+                Quỹ tiết kiệm đã được xóa
+              </Text>
+            </View>
+          </Pressable>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };

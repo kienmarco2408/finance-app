@@ -9,7 +9,7 @@ import React from "react";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-const AddFund = () => {
+const FundMember = () => {
   const navigation = useNavigation();
   return (
     <View style={{ flex: 1, paddingTop: 50 }}>
@@ -90,7 +90,7 @@ const AddFund = () => {
   );
 };
 
-export default AddFund;
+export default FundMember;
 
 const styles = StyleSheet.create({
   header: {

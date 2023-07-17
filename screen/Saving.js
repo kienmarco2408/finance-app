@@ -18,10 +18,8 @@ import {
 import * as Progress from "react-native-progress";
 import { useNavigation } from "@react-navigation/native";
 import CardSaving from "../component/CardSaving";
-import FundCard from "../component/FundCard";
-import { card } from "../data/fundcard";
 
-export default Fund = () => {
+const Saving = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -35,7 +33,14 @@ export default Fund = () => {
             borderRadius: 20,
           }}
         >
-          <View style={{ alignItems: "center", marginTop: 83 }}>
+          <View style={{ alignItems: "center", marginTop: 70 }}>
+            <AntDesign
+              name="arrowleft"
+              size={24}
+              color="black"
+              style={{ alignSelf: "flex-start", marginLeft: 20 }}
+              onPress={() => navigation.goBack()}
+            />
             <Text style={{ fontSize: 16, color: "#91919F", height: 22 }}>
               Tổng thu nhập
             </Text>
@@ -199,7 +204,7 @@ export default Fund = () => {
                 <Text
                   style={{ color: "#FFFFFF", width: 70, textAlign: "center" }}
                 >
-                  Tiết kiệm
+                  Lập nhóm chia bill
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style={{ alignItems: "center" }}>
@@ -214,105 +219,114 @@ export default Fund = () => {
           </View>
         </View>
       </View>
-      <View style={{ alignSelf: "center" }}>
-        {card.slice(1).map((item, index) => {
-          return (
-            <View
-              key={index}
-              style={{
-                width: 336,
-                height: 155,
-                backgroundColor: item.color,
-                borderRadius: 35,
-                justifyContent: "center",
-                marginTop: 15,
-              }}
-            >
-              <View style={{ marginHorizontal: "4%", marginVertical: "5%" }}>
-                <Text
-                  style={{
-                    fontWeight: "900",
-                    fontSize: 18,
-                    marginBottom: "3%",
-                  }}
-                >
-                  {item.title}
-                </Text>
-                <Text style={{ fontWeight: "300" }}>
-                  Ngân sách còn:{" "}
-                  <Text style={{ fontWeight: "700" }}>{item.money}đ</Text>
-                </Text>
-              </View>
-              <View
-                style={{
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  marginHorizontal: "4%",
-                }}
-              >
-                <Image source={require("../storages/home/groupavt.png")} />
-                <View
-                  style={{
-                    width: 101,
-                    height: 40,
-                    backgroundColor: "#000000",
-                    borderRadius: 25,
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Text
-                    style={{ color: "white", fontSize: 12, fontWeight: "700" }}
-                  >
-                    {item.members}
-                  </Text>
-                </View>
-              </View>
-            </View>
-          );
-        })}
-      </View>
       <View
         style={{
-          width: 336,
-          height: 89,
-          backgroundColor: "#BFA8FF",
-          borderRadius: 24,
-          justifyContent: "center",
-          alignSelf: "center",
-          marginTop: 20,
+          marginTop: 30,
+          flexDirection: "row",
+          justifyContent: "space-between",
+          marginHorizontal: "7%",
+          alignItems: "center",
         }}
       >
-        <View
+        <Text style={{ fontSize: 20, fontWeight: 500 }}>Tiết kiệm</Text>
+        <TouchableOpacity
           style={{
-            height: 60,
-            justifyContent: "space-between",
+            backgroundColor: "rgba(195, 195, 195, 0.3)",
+            width: 98,
+            height: 32,
             alignItems: "center",
-            flexDirection: "row",
-            marginHorizontal: 20,
+            justifyContent: "center",
+            borderRadius: 40,
           }}
         >
-          <View style={{ flexDirection: "row" }}>
-            <Image source={require("../storages/fund/room.png")} />
-            <View
-              style={{
-                justifyContent: "space-between",
-                marginVertical: 10,
-              }}
-            >
-              <Text style={{ fontSize: 16, color: "white" }}>Quỹ phòng</Text>
-              <Text style={{ fontWeight: "300", color: "white" }}>
-                Thêm quỹ phòng
-              </Text>
-            </View>
-          </View>
-          <TouchableOpacity onPress={() => navigation.navigate("AddFund")}>
-            <AntDesign name="plus" size={24} color="white" />
-          </TouchableOpacity>
+          <Text style={{ color: "#828282", fontWeight: "300" }}>
+            Xem tất cả
+          </Text>
+        </TouchableOpacity>
+      </View>
+      <ScrollView horizontal style={{ marginTop: 15, marginHorizontal: 40 }}>
+        <CardSaving />
+      </ScrollView>
+
+      <View style={styles.providentFund}>
+        <View style={styles.providentFundCircle}>
+          <Image
+            style={styles.providentFundImage}
+            source={require("../storages/icon/burger.png")}
+          />
         </View>
+        <View style={styles.providentFundComponent}>
+          <Text style={styles.providentFundText}>Quỹ tiết kiệm</Text>
+          <Text style={styles.providentFundAddText}>Thêm quỹ tiết kiệm</Text>
+        </View>
+        <TouchableOpacity>
+          <AntDesign
+            onPress={() => {
+              navigation.navigate("AddSaving");
+            }}
+            style={styles.providentFundIcon}
+            name="plus"
+            size={24}
+            color="white"
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+export default Saving;
+
+const styles = StyleSheet.create({
+  providentFund: {
+    marginTop: 20,
+    width: 380,
+    borderRadius: 24,
+    backgroundColor: "#FF724D",
+    height: 90,
+    left: 25,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  providentFundCircle: {
+    width: 60,
+    height: 60,
+    borderRadius: 50,
+    backgroundColor: "#212325",
+    marginLeft: 18,
+  },
+  providentFundImage: {
+    alignItems: "center",
+    justifyContent: "center",
+    bottom: 3,
+    right: 2,
+  },
+  providentFundComponent: {
+    width: 120,
+    height: 60,
+    justifyContent: "space-between",
+    gap: 11,
+    left: -25,
+  },
+  providentFundText: {
+    fontStyle: "normal",
+    fontWeight: 500,
+    fontSize: 16,
+    lineHeight: 22,
+    color: "#FFF",
+    marginBottom: 5,
+    width: 100,
+  },
+  providentFundAddText: {
+    ontStyle: "normal",
+    fontWeight: 300,
+    fontSize: 14,
+    lineHeight: 18,
+    color: "#FFF",
+    width: 130,
+  },
+  providentFundIcon: {
+    marginRight: 45,
+  },
+});

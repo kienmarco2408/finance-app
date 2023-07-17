@@ -4,7 +4,7 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 
-export default AddFundSuccess = () => {
+export default AddSavingSuccess = () => {
   const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
@@ -28,7 +28,7 @@ export default AddFundSuccess = () => {
       </View>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("AddFund");
+          navigation.navigate("AddSaving");
         }}
         style={styles.createButton}
       >
@@ -36,7 +36,7 @@ export default AddFundSuccess = () => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("AddFundSuccess");
+          navigation.navigate("SavingDetail");
         }}
         style={styles.viewButton}
       >
