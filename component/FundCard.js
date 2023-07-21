@@ -1,11 +1,19 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { card } from "../data/fundcard";
+import { useNavigation } from "@react-navigation/native";
 
 const FundCard = () => {
+  const navigation = useNavigation();
   return card.map((item, index) => {
     return (
-      <View
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate("FundMember", {
+            title: item.title,
+            members: item.members,
+          })
+        }
         key={index}
         style={{
           width: 370,
@@ -48,7 +56,7 @@ const FundCard = () => {
             </Text>
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   });
 };

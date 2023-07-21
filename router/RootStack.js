@@ -30,6 +30,10 @@ import SavingDetail from "../screen/saving/SavingDetail";
 import AddFund from "../screen/fund/AddFund";
 import AddMember from "../screen/fund/AddMember";
 import FundMember from "../screen/fund/FundMember";
+import UpdateFund from "../screen/fund/UpdateFund";
+import DoneFund from "../screen/fund/DoneFund";
+import AllStatistical from "../screen/AllStatistical";
+import DetailStatistical from "../screen/DetailStatistical";
 
 const HomeStack = createNativeStackNavigator();
 function HomeStacks() {
@@ -69,6 +73,14 @@ function StatisticalStacks() {
       <StatisticalStack.Screen
         name="Statistical Stack"
         component={Statistical}
+      />
+      <StatisticalStack.Screen
+        name="AllStatistical"
+        component={AllStatistical}
+      />
+      <StatisticalStack.Screen
+        name="DetailStatistical"
+        component={DetailStatistical}
       />
     </StatisticalStack.Navigator>
   );
@@ -308,6 +320,8 @@ const RootStack = () => {
         <Stacks.Screen name="AddFund" component={AddFund} />
         <Stacks.Screen name="AddMember" component={AddMember} />
         <Stacks.Screen name="FundMember" component={FundMember} />
+        <Stacks.Screen name="UpdateFund" component={UpdateFund} />
+        <Stacks.Screen name="DoneFund" component={DoneFund} />
       </Stacks.Navigator>
     </NavigationContainer>
   );

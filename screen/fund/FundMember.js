@@ -1,16 +1,30 @@
 import {
+  Image,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import Checkbox from "expo-checkbox";
+import { listmini } from "../../data/listmini";
+import { member } from "../../data/member";
 
 const FundMember = () => {
   const navigation = useNavigation();
+  const [isChecked, setIsChecked] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleModal = () => {
+    setModalVisible(true);
+  };
+
+  const handleCancelDelete = () => {
+    setModalVisible(false);
+  };
   return (
     <View style={{ flex: 1, paddingTop: 50 }}>
       <View style={styles.header}>
@@ -67,6 +81,69 @@ const FundMember = () => {
         </TouchableOpacity>
         <View
           style={{
+            width: 358,
+            height: 256,
+            backgroundColor: "#3B82F6",
+            alignItems: "center",
+            alignSelf: "center",
+            marginTop: 18,
+            borderRadius: 24,
+          }}
+        >
+          {listmini.map((items, index) => {
+            const [isChecked, setIsChecked] = useState(items.item);
+            return (
+              <View
+                key={index}
+                style={{
+                  width: 326,
+                  height: 68,
+                  backgroundColor: "#DBEAFE",
+                  borderRadius: 23,
+                  marginTop: 13,
+                }}
+              >
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    paddingHorizontal: 10,
+                    paddingVertical: 16,
+                    alignItems: "center",
+                    backgroundColor: isChecked ? "#DBEAFE" : undefined,
+                    borderRadius: 23,
+                  }}
+                >
+                  <TouchableOpacity
+                    onPress={handleModal}
+                    style={{ flexDirection: "row", alignItems: "center" }}
+                  >
+                    <Image source={items.img} />
+                    <Text
+                      style={{
+                        fontWeight: "500",
+                        fontSize: 16,
+                        color: "#1F2937",
+                        marginLeft: 20,
+                      }}
+                    >
+                      {items.name}
+                    </Text>
+                  </TouchableOpacity>
+                  <Checkbox
+                    style={styles.checkbox}
+                    value={isChecked}
+                    onValueChange={setIsChecked}
+                    color={isChecked ? "#3B82F6" : undefined}
+                  />
+                </View>
+              </View>
+            );
+          })}
+        </View>
+
+        <View
+          style={{
             height: 62,
             borderTopWidth: 1,
             borderBottomWidth: 1,
@@ -82,9 +159,71 @@ const FundMember = () => {
           </Text>
           <AntDesign name="plus" size={24} color="#828282" />
         </View>
+        <View style={{ alignSelf: "center" }}>
+          {member.map((items, index) => {
+            const [isChecked, setIsChecked] = useState(items.item);
+            return (
+              <View
+                key={index}
+                style={{
+                  width: 332,
+                  height: 60,
+                  backgroundColor: "rgba(249, 220, 92, 0.3)",
+                  borderRadius: 23,
+                  marginTop: 13,
+                }}
+              >
+                <View
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    paddingHorizontal: 10,
+                    paddingVertical: 16,
+                    alignItems: "center",
+                    borderRadius: 23,
+                  }}
+                >
+                  <TouchableOpacity
+                    style={{ flexDirection: "row", alignItems: "center" }}
+                  >
+                    <Image
+                      source={items.img}
+                      style={{ width: 32, height: 32 }}
+                    />
+                    <Text
+                      style={{
+                        fontWeight: "500",
+                        fontSize: 16,
+                        color: "#1F2937",
+                        marginLeft: 16,
+                      }}
+                    >
+                      {items.name}
+                    </Text>
+                  </TouchableOpacity>
+                  <View
+                    style={{
+                      backgroundColor: "rgba(195, 195, 195, 0.3)",
+                      width: 124,
+                      height: 32,
+                      alignItems: "center",
+                      justifyContent: "center",
+                      borderRadius: 40,
+                    }}
+                  >
+                    <Text>{items.money}</Text>
+                  </View>
+                </View>
+              </View>
+            );
+          })}
+        </View>
       </View>
-      <TouchableOpacity style={styles.createButton}>
-        <Text style={styles.createText}>Tạo quỹ</Text>
+      <TouchableOpacity
+        style={styles.createButton}
+        onPress={() => navigation.navigate("UpdateFund")}
+      >
+        <Text style={styles.createText}>Cập nhật quỹ</Text>
       </TouchableOpacity>
     </View>
   );
@@ -113,20 +252,20 @@ const styles = StyleSheet.create({
   createButton: {
     width: 390,
     height: 60,
-    top: 400,
-    borderRadius: 16,
+    marginTop: "auto",
+    marginBottom: 50,
+    borderRadius: 100,
     borderColor: "gray",
     backgroundColor: "#F7C45E",
     alignSelf: "center",
+    alignItems: "center",
+    justifyContent: "center",
   },
   createText: {
-    width: 72,
-    height: 30,
-    top: 13,
     fontWeight: 500,
     fontSize: 20,
     lineHeight: 30,
-    alignSelf: "center",
+
     color: "#313131",
   },
 });
